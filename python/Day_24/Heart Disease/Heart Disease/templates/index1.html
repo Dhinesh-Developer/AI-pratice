@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Heart Disease Prediction</title>
+  <style>
+    body {
+      height: 100vh;
+      background-image: url("static/image/image6.gif");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: white;
+    }
+
+    h1, h4 {
+      text-align: center;
+    }
+
+    .form-container {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    .form-group label {
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      display: block;
+      margin: 20px auto;
+    }
+
+    .prediction-text {
+      background-color: #AFEEEE;
+      color: black;
+      padding: 10px;
+      text-align: center;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h1>Heart Disease Prediction</h1>
+        <h4>Enter The Details</h4>
+
+        <div class="form-container">
+          <!-- Main Input For Receiving Query to our ML -->
+          <form action="{{ url_for('predict')}}" method="post">
+            <div class="form-group">
+              <label for="age">Age</label>
+              <input type="text" class="form-control" name="age" required>
+            </div>
+            <div class="form-group">
+              <label for="sex">Sex</label>
+              <input type="text" class="form-control" name="sex" required>
+            </div>
+            <div class="form-group">
+              <label for="cp">Chest Pain Type</label>
+              <input type="text" class="form-control" name="cp" required>
+            </div>
+            <div class="form-group">
+              <label for="Rbp">Resting Blood Pressure</label>
+              <input type="text" class="form-control" name="Rbp" required>
+            </div>
+            <div class="form-group">
+              <label for="chol">Cholesterol</label>
+              <input type="text" class="form-control" name="Chol" required>
+            </div>
+            <div class="form-group">
+              <label for="fbs">Fasting Blood Sugar</label>
+              <input type="text" class="form-control" name="fbs" required>
+            </div>
+            <div class="form-group">
+              <label for="recg">Resting ECG</label>
+              <input type="text" class="form-control" name="recg" required>
+            </div>
+            <div class="form-group">
+              <label for="mhr">Max Heart Rate</label>
+              <input type="text" class="form-control" name="mhr" required>
+            </div>
+            <div class="form-group">
+              <label for="ex">Exercise Angina</label>
+              <input type="text" class="form-control" name="ex" required>
+            </div>
+            <div class="form-group">
+              <label for="op">Old Peak</label>
+              <input type="text" class="form-control" name="op" required>
+            </div>
+            <div class="form-group">
+              <label for="slp">ST Slope</label>
+              <input type="text" class="form-control" name="slp" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+
+        <div class="prediction-text mt-3">
+          {{ prediction_text }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
